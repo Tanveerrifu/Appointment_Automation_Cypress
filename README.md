@@ -8,7 +8,7 @@ https://github.com/Tanveerrifu/Appointment_Automation_Cypress/assets/47789876/1a
 
 #Test Details
 
-@The Cypress test script performs the following steps:
+#The Cypress test script performs the following steps:
 
 1. Visits the Katalon Demo website: https://katalon-demo-cura.herokuapp.com/
 2. Clicks on the "Make Appointment" button.
