@@ -15,6 +15,9 @@ describe("Appointment Automation",()=>{
         cy.get('#txt_comment').type('This is a comment for Medicare');
         cy.get('#btn-book-appointment').click();
         cy.get('h2').should('have.text','Appointment Confirmation');
+        cy.get('#menu-toggle > .fa').click();
+        cy.get(':nth-child(4) > a').click();
+        cy.xpath("//p[normalize-space()='Yes']").should('have.text','Yes');
     });
 
     it("Test Case 2: Book appointment with Medicaid", () => {
@@ -32,6 +35,17 @@ describe("Appointment Automation",()=>{
         cy.get('#btn-book-appointment').click();
         cy.get('h2').should('have.text','Appointment Confirmation');
     });
-
+    it("Log out Test", () => {
+        cy.visit('https://katalon-demo-cura.herokuapp.com/');
+        cy.get('#menu-toggle > .fa').click();
+        cy.xpath("//a[normalize-space()='Login']").click();
+        cy.get('#txt-username').type('John Doe');
+        cy.get('#txt-password').type('ThisIsNotAPassword');
+        cy.get('#btn-login').click();
+        cy.get('#menu-toggle > .fa').click();
+        cy.get(':nth-child(6) > a').click();
+        cy.get('h1').should('have.text','CURA Healthcare Service');
+        
+    });
     // Add more test cases as needed
 });
